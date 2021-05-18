@@ -40,6 +40,7 @@ void *reader(void *x){
     sem_post(&reader_critical); 
 
 }
+
 // Implementation of Writers
 
 void *writer(void *x){
