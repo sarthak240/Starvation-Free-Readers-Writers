@@ -57,27 +57,27 @@ void *writer(void *x){
 int main(){
 
     // Semaphores initialised
-    sem_init(&remove_starvation,0,1);
-    sem_init(&cant_write,0,1);
-    sem_init(&reader_critical,0,1);
+    sem_init(&remove_starvation, 0, 1);
+    sem_init(&cant_write, 0, 1);
+    sem_init(&reader_critical, 0, 1);
 
     // Thread are created
-    pthread_create(&r[0],NULL,reader,(void *)0);
-    pthread_create(&w[0],NULL,writer,(void *)0);
-    pthread_create(&r[1],NULL,reader,(void *)1);
-    pthread_create(&w[1],NULL,writer,(void *)1);
-    pthread_create(&r[2],NULL,reader,(void *)2);
-    pthread_create(&r[3],NULL,reader,(void *)3);
-    pthread_create(&w[2],NULL,writer,(void *)2);
-    pthread_create(&r[4],NULL,reader,(void *)4);
+    pthread_create(&r[0], NULL, reader, (void *)0);
+    pthread_create(&w[0], NULL, writer, (void *)0);
+    pthread_create(&r[1], NULL, reader, (void *)1);
+    pthread_create(&w[1], NULL, writer, (void *)1);
+    pthread_create(&r[2], NULL, reader, (void *)2);
+    pthread_create(&r[3], NULL, reader, (void *)3);
+    pthread_create(&w[2], NULL, writer, (void *)2);
+    pthread_create(&r[4], NULL, reader, (void *)4);
     
     // All threads completed         
-    pthread_join(r[0],NULL);
-    pthread_join(w[0],NULL);
-    pthread_join(r[1],NULL);
-    pthread_join(w[1],NULL);
-    pthread_join(r[2],NULL);
-    pthread_join(r[3],NULL);
-    pthread_join(r[2],NULL);
-    pthread_join(r[4],NULL);
+    pthread_join(r[0], NULL);
+    pthread_join(w[0], NULL);
+    pthread_join(r[1], NULL);
+    pthread_join(w[1], NULL);
+    pthread_join(r[2], NULL);
+    pthread_join(r[3], NULL);
+    pthread_join(w[2], NULL);
+    pthread_join(r[4], NULL);
 }
